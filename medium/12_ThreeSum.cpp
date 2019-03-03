@@ -5,7 +5,8 @@ public:
         sort(nums.begin(),nums.end());
         for(int i=0;i<nums.size();i++)
         {
-            int target = -nums[i];
+           if(i>0 && nums[i-1] == nums[i]) continue; //skip same result;
+            int target = nums[i];
             int front = i+1;
             int back = nums.size()-1;
             while(front<back)
@@ -27,12 +28,7 @@ public:
                     while(front<back && nums[back]== triplet[2])
                         back--;
                 }
-               
-                
             }
-            
-            if(i<nums.size()-1 && nums[i+1]==nums[i])
-                i++;
         }
 
         return result;
